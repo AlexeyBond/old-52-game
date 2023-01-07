@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://img/player/player_eye4.png" type="Texture" id=1]
 [ext_resource path="res://img/player/player_eye3.png" type="Texture" id=2]
@@ -10,6 +10,12 @@
 [ext_resource path="res://img/player/hand.png" type="Texture" id=8]
 [ext_resource path="res://img/objects/humman.png" type="Texture" id=9]
 [ext_resource path="res://img/objects/humman-reaped.png" type="Texture" id=10]
+[ext_resource path="res://snd/walk.ogg" type="AudioStream" id=11]
+[ext_resource path="res://snd/scream-2.ogg" type="AudioStream" id=12]
+[ext_resource path="res://snd/stab-2.ogg" type="AudioStream" id=13]
+[ext_resource path="res://snd/stab-3.ogg" type="AudioStream" id=14]
+[ext_resource path="res://snd/pull-1.ogg" type="AudioStream" id=15]
+[ext_resource path="res://snd/ambient.ogg" type="AudioStream" id=16]
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 3 )
@@ -449,6 +455,45 @@ tracks/15/keys = {
 "update": 1,
 "values": [ false, true ]
 }
+tracks/16/type = "method"
+tracks/16/path = NodePath("Humman-reaped/screamPlayer")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 1.8, 2.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+}, {
+"args": [  ],
+"method": "stop"
+} ]
+}
+tracks/17/type = "audio"
+tracks/17/path = NodePath("Humman-reaped/stabPlayer")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"clips": [ {
+"end_offset": 1.17093,
+"start_offset": 0.0,
+"stream": ExtResource( 14 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 15 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+} ],
+"times": PoolRealArray( 1.1, 1.8, 2.7 )
+}
 
 [sub_resource type="Animation" id=33]
 resource_name = "idle"
@@ -520,6 +565,8 @@ position = Vector2( 302, 478 )
 script = ExtResource( 7 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+collision_layer = 2
+collision_mask = 3
 
 [node name="PlayerBase" type="Sprite" parent="KinematicBody2D"]
 position = Vector2( 0, -64 )
@@ -538,19 +585,19 @@ playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="KinematicBody2D/PlayerBase"]
 frames = SubResource( 20 )
-frame = 2
+frame = 3
 speed_scale = 1.24
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="KinematicBody2D/PlayerBase"]
 frames = SubResource( 24 )
-frame = 2
+frame = 3
 speed_scale = 1.31
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="KinematicBody2D/PlayerBase"]
 frames = SubResource( 28 )
-frame = 2
+frame = 3
 speed_scale = 1.1
 playing = true
 
@@ -561,7 +608,6 @@ shape = SubResource( 29 )
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="KinematicBody2D"]
 position = Vector2( -1, -75 )
 rotation = 1.10745
-scale = Vector2( 1, 1 )
 shape = SubResource( 31 )
 
 [node name="Hands" type="Node2D" parent="KinematicBody2D"]
@@ -576,6 +622,15 @@ visible = false
 position = Vector2( 94, -122 )
 texture = ExtResource( 10 )
 
+[node name="screamPlayer" type="AudioStreamPlayer2D" parent="KinematicBody2D/Hands/Humman-reaped"]
+stream = ExtResource( 12 )
+volume_db = -11.965
+attenuation = 1.1487
+
+[node name="stabPlayer" type="AudioStreamPlayer2D" parent="KinematicBody2D/Hands/Humman-reaped"]
+stream = ExtResource( 13 )
+volume_db = 12.885
+
 [node name="Hand" type="Sprite" parent="KinematicBody2D/Hands"]
 position = Vector2( -57, -62 )
 texture = ExtResource( 8 )
@@ -589,3 +644,12 @@ playback_default_blend_time = 1.0
 anims/RESET = SubResource( 32 )
 anims/grab = SubResource( 34 )
 anims/idle = SubResource( 33 )
+
+[node name="walkSound" type="AudioStreamPlayer2D" parent="KinematicBody2D"]
+stream = ExtResource( 11 )
+volume_db = 4.601
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+volume_db = -22.723
+autoplay = true

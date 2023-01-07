@@ -1,0 +1,36 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://noisetexture.tres" type="Texture" id=1]
+[ext_resource path="res://img/boss/black_lightning.tres" type="Shader" id=2]
+[ext_resource path="res://black_lightning.gd" type="Script" id=3]
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0 ), 0.0, 0.74426, 0, 0, Vector2( 0.162921, 0.908523 ), 0.774613, 0.774613, 0, 0, Vector2( 0.786517, 0.88125 ), -0.394678, -0.394678, 0, 0, Vector2( 1, 0.163068 ), -1.52011, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+width = 512
+curve = SubResource( 5 )
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.0505618, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.123596, 1 ), 0.215758, 0.215758, 0, 0, Vector2( 0.185393, 0.0090909 ), 0.0, 0.0, 0, 0, Vector2( 0.41573, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.561798, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.679775, 0.672727 ), 0.0, 0.0, 0, 0, Vector2( 0.747191, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.898876, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 2 )
+shader_param/noise_texture = ExtResource( 1 )
+shader_param/curve = SubResource( 6 )
+shader_param/intensity_curve = SubResource( 8 )
+
+[node name="Lightning" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource( 4 )
+margin_left = 1.00001
+margin_top = -40.0
+margin_right = 101.0
+margin_bottom = 88.0
+rect_rotation = 10.091
+rect_pivot_offset = Vector2( 0, 64 )
+script = ExtResource( 3 )

@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Area2D
+
+
+func _on_Area2D_body_entered(body):
+	var owner = body.owner
+	
+	if owner != null and owner is Player:
+		$Camera2D.make_current()
+"
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 263, 300 )
+
+[node name="Camerarea" type="Area2D"]
+script = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+rotating = true
+smoothing_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1, 2 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]

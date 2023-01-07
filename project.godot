@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "BlackWeapon",
+"language": "GDScript",
+"path": "res://knife.tres.gd"
+}, {
+"base": "Node2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Player.gd"
+} ]
+_global_script_class_icons={
+"BlackWeapon": "",
+"Player": ""
+}
+
 [application]
 
 config/name="old-52-game"
