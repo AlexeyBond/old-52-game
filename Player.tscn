@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://img/player/player_eye4.png" type="Texture" id=1]
 [ext_resource path="res://img/player/player_eye3.png" type="Texture" id=2]
@@ -7,9 +7,9 @@
 [ext_resource path="res://img/player/player_eye5.png" type="Texture" id=5]
 [ext_resource path="res://img/player/player_base.png" type="Texture" id=6]
 [ext_resource path="res://Player.gd" type="Script" id=7]
-
-[sub_resource type="PhysicsMaterial" id=30]
-friction = 10.0
+[ext_resource path="res://img/player/hand.png" type="Texture" id=8]
+[ext_resource path="res://img/objects/humman.png" type="Texture" id=9]
+[ext_resource path="res://img/objects/humman-reaped.png" type="Texture" id=10]
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 3 )
@@ -117,15 +117,407 @@ height = 50.0
 
 [sub_resource type="CapsuleShape2D" id=31]
 
+[sub_resource type="Animation" id=32]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Hand:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -57, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Hand:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -62, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Hand:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Hand2:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 79, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Hand2:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( -65, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Hand2:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Humman:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("Humman:position:x")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 83, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("Humman:position:y")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 113, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/9/type = "bezier"
+tracks/9/path = NodePath("Humman:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/10/type = "bezier"
+tracks/10/path = NodePath("Humman-reaped:position:x")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"points": PoolRealArray( 94, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/11/type = "bezier"
+tracks/11/path = NodePath("Humman-reaped:position:y")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"points": PoolRealArray( -122, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/12/type = "bezier"
+tracks/12/path = NodePath("Humman-reaped:rotation_degrees")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Humman-reaped:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("../..:can_move")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=34]
+resource_name = "grab"
+length = 5.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Hand2:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 88, -0.25, 0, 0.25, 0, 88, -0.25, 0, 0.25, 0, 84, -0.25, 0, 0.25, 0, 84, -0.25, 0, 0.25, 0, 95, -0.25, 0, 0.25, 0, 95, -0.25, 0, 0.25, 0, 101, -0.25, 0, 0.25, 0, 101, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 1.2, 1.8, 2, 3, 3.4, 4 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Hand2:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -104, -0.25, 0, 0.25, 0, -104, -0.25, 0, 0.25, 0, -14, -0.25, 0, 0.25, 0, -14, -0.25, 0, 0.25, 0, -180, -0.25, 0, 0.25, 0, -180, -0.25, 0, 0.25, 0, -201, -0.25, 0, 0.25, 0, -201, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 1.2, 1.8, 2, 3, 3.4, 4 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Hand2:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -92.7336, -0.25, 0, 0.25, 0, -34.3495, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 1.2, 1.8, 2, 3, 3.4, 4 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Hand:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( -59, -0.25, 0, 0.25, 0, -46, -0.25, 0, 0.25, 0, -46, -0.25, 0, 0.25, 0, 151, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.2, 1.8, 2.5, 2.8 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Hand:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( -47, -0.25, 0, 0.25, 0, -134, -0.25, 0, 0.25, 0, -134, -0.25, 0, 0.25, 0, -81, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.2, 1.8, 2.5, 2.8 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Hand:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.2, 1.8, 2.5, 2.8 )
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Humman:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1.8, 2.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("Humman:position:x")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 83, -0.25, 0, 0.25, 0, 94, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 1.8, 2 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("Humman:position:y")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 113, -0.25, 0, 0.25, 0, -58, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 1.8, 2 )
+}
+tracks/9/type = "bezier"
+tracks/9/path = NodePath("Humman:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 1.8, 2 )
+}
+tracks/10/type = "method"
+tracks/10/path = NodePath("AnimationPlayer")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "idle", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+tracks/11/type = "bezier"
+tracks/11/path = NodePath("Humman-reaped:position:x")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"points": PoolRealArray( 94, -0.25, 0, 0.25, 0, 94, -0.25, 0, 0.25, 0, 174, -0.25, 0, 0.25, 0, 163, -0.4, 14.5001, 0.3, -13.4998, 154, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 2.7, 3, 3.4, 4, 4.4 )
+}
+tracks/12/type = "bezier"
+tracks/12/path = NodePath("Humman-reaped:position:y")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"points": PoolRealArray( -122, -0.25, 0, 0.25, 0, -122, -0.25, 0, 0.25, 0, -202, -0.3, 78.222, 0.2, -55.9323, -345.648, -0.3, 65.3873, 0.2, -151.323, -568, -0.2, 144.955, 0.25, 0 ),
+"times": PoolRealArray( 2.7, 3, 3.4, 4, 4.4 )
+}
+tracks/13/type = "bezier"
+tracks/13/path = NodePath("Humman-reaped:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -56.7009, -0.1, 58.9619, 0.2, -21.9968, -160.785, -0.3, 57.6457, 0.3, -66.1889, -258.876, -0.3, 98.9791, 0.2, -86.7729 ),
+"times": PoolRealArray( 2.7, 3, 3.4, 4, 4.4 )
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Humman-reaped:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 2.8, 4.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("../..:can_move")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=33]
+resource_name = "idle"
+length = 10.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Hand:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -57, -0.25, 0, 0.25, 0, -64, -0.25, 0, 0.25, 0, -82, -0.25, 0, 0.25, 0, -116, -0.25, 0, 0.25, 0, -62, -0.25, 0, 0.25, 0, -54, -0.25, 0, 0.25, 0, -62, -0.25, 0, 0.25, 0, -57, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.9, 1.8, 3.5, 5.2, 7, 8.3, 10 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Hand:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -62, -0.25, 0, 0.25, 0, -89, -0.25, 0, 0.25, 0, -101, -0.25, 0, 0.25, 0, -56, -0.25, 0, 0.25, 0, -40, -0.25, 0, 0.25, 0, -77, -0.25, 0, 0.25, 0, -48, -0.25, 0, 0.25, 0, -62, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.9, 1.8, 3.5, 5.2, 7, 8.3, 10 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Hand:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 10, -0.25, 0, 0.25, 0, 20, -0.25, 0, 0.25, 0, 30, -0.25, 0, 0.25, 0, 50, -0.25, 0, 0.25, 0, 30, -0.25, 0, 0.25, 0, 10, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.9, 1.8, 3.5, 5.2, 7, 8.3, 10 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Hand2:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 81, -0.25, 0, 0.25, 0, 87, -0.25, 0, 0.25, 0, 101, -0.25, 0, 0.25, 0, 115, -0.25, 0, 0.25, 0, 154.136, -0.25, 0, 0.25, 0, 44.2352, -0.25, 0, 0.25, 0, 81, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.9, 1.8, 3.5, 5, 6.9, 10 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Hand2:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( -65, -0.25, 0, 0.25, 0, -45, -0.25, 0, 0.25, 0, -64, -0.25, 0, 0.25, 0, -112, -0.25, 0, 0.25, 0, -80, -0.25, 0, 0.25, 0, -52, -0.25, 0, 0.25, 0, -78, -0.25, 0, 0.25, 0, -61.5184, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.9, 1.8, 3.5, 4.9, 7, 8.3, 10 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Hand2:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.9, 1.8, 3.5, 4.9, 7, 8.3, 9.3 )
+}
+
 [node name="Player" type="Node2D"]
 position = Vector2( 302, 478 )
 script = ExtResource( 7 )
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-visible = false
-mode = 3
-physics_material_override = SubResource( 30 )
-can_sleep = false
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 
@@ -135,29 +527,30 @@ texture = ExtResource( 6 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D/PlayerBase"]
 frames = SubResource( 9 )
+frame = 2
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="KinematicBody2D/PlayerBase"]
 frames = SubResource( 16 )
-frame = 1
+frame = 3
 speed_scale = 1.5
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="KinematicBody2D/PlayerBase"]
 frames = SubResource( 20 )
-frame = 1
+frame = 2
 speed_scale = 1.24
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="KinematicBody2D/PlayerBase"]
 frames = SubResource( 24 )
-frame = 3
+frame = 2
 speed_scale = 1.31
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="KinematicBody2D/PlayerBase"]
 frames = SubResource( 28 )
-frame = 1
+frame = 2
 speed_scale = 1.1
 playing = true
 
@@ -170,3 +563,29 @@ position = Vector2( -1, -75 )
 rotation = 1.10745
 scale = Vector2( 1, 1 )
 shape = SubResource( 31 )
+
+[node name="Hands" type="Node2D" parent="KinematicBody2D"]
+
+[node name="Humman" type="Sprite" parent="KinematicBody2D/Hands"]
+visible = false
+position = Vector2( 83, 113 )
+texture = ExtResource( 9 )
+
+[node name="Humman-reaped" type="Sprite" parent="KinematicBody2D/Hands"]
+visible = false
+position = Vector2( 94, -122 )
+texture = ExtResource( 10 )
+
+[node name="Hand" type="Sprite" parent="KinematicBody2D/Hands"]
+position = Vector2( -57, -62 )
+texture = ExtResource( 8 )
+
+[node name="Hand2" type="Sprite" parent="KinematicBody2D/Hands"]
+position = Vector2( 79, -65 )
+texture = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="KinematicBody2D/Hands"]
+playback_default_blend_time = 1.0
+anims/RESET = SubResource( 32 )
+anims/grab = SubResource( 34 )
+anims/idle = SubResource( 33 )
