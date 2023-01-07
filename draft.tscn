@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://main_tileset.tres" type="TileSet" id=1]
-[ext_resource path="res://img/player/static0.png" type="Texture" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://img/env/grass1.png" type="Texture" id=3]
 [ext_resource path="res://img/objects/head.png" type="Texture" id=4]
 [ext_resource path="res://img/env/tree.png" type="Texture" id=5]
@@ -9,14 +9,72 @@
 [ext_resource path="res://img/objects/humman.png" type="Texture" id=7]
 [ext_resource path="res://img/boss/body.png" type="Texture" id=8]
 [ext_resource path="res://img/boss/knife.png" type="Texture" id=9]
+[ext_resource path="res://img/boss/dark_particles.tres" type="Material" id=10]
+[ext_resource path="res://img/boss/wobbly_blob.gdshader" type="Shader" id=11]
+[ext_resource path="res://img/bg/sky.png" type="Texture" id=12]
+[ext_resource path="res://cloud.tscn" type="PackedScene" id=13]
+[ext_resource path="res://img/boss/black_lightning.tres" type="Shader" id=14]
+[ext_resource path="res://noisetexture.tres" type="Texture" id=15]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 11 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.219101, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.775281, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+width = 512
+curve = SubResource( 5 )
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.0505618, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.123596, 1 ), 0.215758, 0.215758, 0, 0, Vector2( 0.185393, 0.0090909 ), 0.0, 0.0, 0, 0, Vector2( 0.41573, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.561798, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.679775, 0.672727 ), 0.0, 0.0, 0, 0, Vector2( 0.747191, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.898876, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 14 )
+shader_param/noise_texture = ExtResource( 15 )
+shader_param/curve = SubResource( 6 )
+shader_param/intensity_curve = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 2
+emission_box_extents = Vector3( 10, 300, 1 )
+flag_disable_z = true
+direction = Vector3( -1, 0, 0 )
+spread = 11.14
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 99.01
+initial_velocity_random = 0.39
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 5.94
+scale = 4.0
+color = Color( 0.180392, 0.282353, 0.380392, 1 )
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Sky" type="Sprite" parent="."]
+position = Vector2( 513, 302 )
+texture = ExtResource( 12 )
+
+[node name="Cloud" parent="Sky" instance=ExtResource( 13 )]
+position = Vector2( -408, -259 )
+
+[node name="Cloud2" parent="Sky" instance=ExtResource( 13 )]
+position = Vector2( 121, -229 )
+scale = Vector2( 1.6, 1.6 )
+
+[node name="Cloud3" parent="Sky" instance=ExtResource( 13 )]
+position = Vector2( 958, -248 )
+scale = Vector2( 1.4, 1.4 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( 983040, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 983044, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 0, 983062, 0, 0, 983063, 0, 0, 983064, 0, 0, 983065, 0, 0, 983066, 0, 0, 983067, 0, 0, 983068, 0, 0, 983069, 0, 0, 983070, 0, 0, 983071, 0, 0, 1048576, 1, 0, 1048577, 1, 0, 1048578, 1, 0, 1048579, 1, 0, 1048580, 1, 0, 1048581, 1, 0, 1048582, 1, 0, 1048583, 1, 0, 1048584, 1, 0, 1048585, 1, 0, 1048586, 1, 0, 1048587, 1, 0, 1048588, 1, 0, 1048589, 1, 0, 1048590, 1, 0, 1048591, 1, 0, 1048592, 1, 0, 1048593, 1, 0, 1048594, 1, 0, 1048595, 1, 0, 1048596, 1, 0, 1048597, 1, 0, 1048598, 1, 0, 1048599, 1, 0, 1048600, 1, 0, 1048601, 1, 0, 1048602, 1, 0, 1048603, 1, 0, 1048604, 1, 0, 1048605, 1, 0, 1048606, 1, 0, 1048607, 1, 0, 1114112, 1, 0, 1114113, 1, 0, 1114114, 1, 0, 1114115, 1, 0, 1114116, 1, 0, 1114117, 1, 0, 1114118, 1, 0, 1114119, 1, 0, 1114120, 1, 0, 1114121, 1, 0, 1114122, 1, 0, 1114123, 1, 0, 1114124, 1, 0, 1114125, 1, 0, 1114126, 1, 0, 1114127, 1, 0, 1114128, 1, 0, 1114129, 1, 0, 1114130, 1, 0, 1114131, 1, 0, 1114132, 1, 0, 1114133, 1, 0, 1114134, 1, 0, 1114135, 1, 0, 1114136, 1, 0, 1114137, 1, 0, 1114138, 1, 0, 1114139, 1, 0, 1114140, 1, 0, 1114141, 1, 0, 1114142, 1, 0, 1114143, 1, 0, 1179648, 1, 0, 1179649, 1, 0, 1179650, 1, 0, 1179651, 1, 0, 1179652, 1, 0, 1179653, 1, 0, 1179654, 1, 0, 1179655, 1, 0, 1179656, 1, 0, 1179657, 1, 0, 1179658, 1, 0, 1179659, 1, 0, 1179660, 1, 0, 1179661, 1, 0, 1179662, 1, 0, 1179663, 1, 0, 1179664, 1, 0, 1179665, 1, 0, 1179666, 1, 0, 1179667, 1, 0, 1179668, 1, 0, 1179669, 1, 0, 1179670, 1, 0, 1179671, 1, 0, 1179672, 1, 0, 1179673, 1, 0, 1179674, 1, 0, 1179675, 1, 0, 1179676, 1, 0, 1179677, 1, 0, 1179678, 1, 0, 1179679, 1, 0 )
+tile_data = PoolIntArray( 851967, 1, 0, 786463, 0, 0, 917503, 1, 0, 851999, 1, 0, 983039, 1, 0, 917504, 0, 0, 917534, 0, 0, 917535, 1, 0, 1048575, 1, 0, 983040, 1, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 983044, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 0, 983062, 0, 0, 983063, 0, 0, 983064, 0, 0, 983065, 0, 0, 983066, 0, 0, 983067, 0, 0, 983068, 0, 0, 983069, 0, 0, 983070, 1, 0, 983071, 1, 0, 1114111, 1, 0, 1048576, 1, 0, 1048577, 1, 0, 1048578, 1, 0, 1048579, 1, 0, 1048580, 1, 0, 1048581, 1, 0, 1048582, 1, 0, 1048583, 1, 0, 1048584, 1, 0, 1048585, 1, 0, 1048586, 1, 0, 1048587, 1, 0, 1048588, 1, 0, 1048589, 1, 0, 1048590, 1, 0, 1048591, 1, 0, 1048592, 1, 0, 1048593, 1, 0, 1048594, 1, 0, 1048595, 1, 0, 1048596, 1, 0, 1048597, 1, 0, 1048598, 1, 0, 1048599, 1, 0, 1048600, 1, 0, 1048601, 1, 0, 1048602, 1, 0, 1048603, 1, 0, 1048604, 1, 0, 1048605, 1, 0, 1048606, 1, 0, 1048607, 1, 0, 1179647, 1, 0, 1114112, 1, 0, 1114113, 1, 0, 1114114, 1, 0, 1114115, 1, 0, 1114116, 1, 0, 1114117, 1, 0, 1114118, 1, 0, 1114119, 1, 0, 1114120, 1, 0, 1114121, 1, 0, 1114122, 1, 0, 1114123, 1, 0, 1114124, 1, 0, 1114125, 1, 0, 1114126, 1, 0, 1114127, 1, 0, 1114128, 1, 0, 1114129, 1, 0, 1114130, 1, 0, 1114131, 1, 0, 1114132, 1, 0, 1114133, 1, 0, 1114134, 1, 0, 1114135, 1, 0, 1114136, 1, 0, 1114137, 1, 0, 1114138, 1, 0, 1114139, 1, 0, 1114140, 1, 0, 1114141, 1, 0, 1114142, 1, 0, 1114143, 1, 0, 1245183, 1, 0, 1179648, 1, 0, 1179649, 1, 0, 1179650, 1, 0, 1179651, 1, 0, 1179652, 1, 0, 1179653, 1, 0, 1179654, 1, 0, 1179655, 1, 0, 1179656, 1, 0, 1179657, 1, 0, 1179658, 1, 0, 1179659, 1, 0, 1179660, 1, 0, 1179661, 1, 0, 1179662, 1, 0, 1179663, 1, 0, 1179664, 1, 0, 1179665, 1, 0, 1179666, 1, 0, 1179667, 1, 0, 1179668, 1, 0, 1179669, 1, 0, 1179670, 1, 0, 1179671, 1, 0, 1179672, 1, 0, 1179673, 1, 0, 1179674, 1, 0, 1179675, 1, 0, 1179676, 1, 0, 1179677, 1, 0, 1179678, 1, 0, 1179679, 1, 0 )
 
 [node name="Tree" type="Sprite" parent="."]
 position = Vector2( 542, 356 )
@@ -47,14 +105,107 @@ position = Vector2( 357, 306 )
 texture = ExtResource( 6 )
 
 [node name="Body" type="Sprite" parent="."]
+material = SubResource( 2 )
 position = Vector2( 116, 98 )
 texture = ExtResource( 8 )
 
-[node name="Knife" type="Sprite" parent="."]
-position = Vector2( 671, 290 )
+[node name="Particles2D4" type="Particles2D" parent="Body"]
+position = Vector2( -59, 108 )
+rotation = -2.56809
+amount = 100
+lifetime = 2.0
+local_coords = false
+process_material = ExtResource( 10 )
+
+[node name="Particles2D5" type="Particles2D" parent="Body"]
+position = Vector2( 3, 119 )
+rotation = -2.40557
+amount = 100
+lifetime = 2.0
+local_coords = false
+process_material = ExtResource( 10 )
+
+[node name="Particles2D6" type="Particles2D" parent="Body"]
+position = Vector2( 79, 107 )
+rotation = -2.40557
+amount = 100
+lifetime = 2.0
+local_coords = false
+process_material = ExtResource( 10 )
+
+[node name="Particles2D7" type="Particles2D" parent="Body"]
+position = Vector2( 129, 28 )
+rotation = -2.40557
+amount = 100
+lifetime = 2.0
+local_coords = false
+process_material = ExtResource( 10 )
+
+[node name="Particles2D8" type="Particles2D" parent="Body"]
+position = Vector2( 79, -32 )
+rotation = -2.40557
+amount = 100
+lifetime = 2.0
+local_coords = false
+process_material = ExtResource( 10 )
+
+[node name="Particles2D9" type="Particles2D" parent="Body"]
+position = Vector2( -95, 53 )
+rotation = -2.40557
+amount = 100
+lifetime = 2.0
+local_coords = false
+process_material = ExtResource( 10 )
+
+[node name="Particles2D10" type="Particles2D" parent="Body"]
+position = Vector2( -93, -49 )
+rotation = -2.40557
+amount = 100
+lifetime = 2.0
+local_coords = false
+process_material = ExtResource( 10 )
+
+[node name="Knife" type="Sprite" parent="Body"]
+position = Vector2( 555, 192 )
 rotation = 0.211964
 texture = ExtResource( 9 )
 
-[node name="Static0" type="Sprite" parent="."]
-position = Vector2( 315, 419 )
-texture = ExtResource( 2 )
+[node name="Particles2D" type="Particles2D" parent="Body/Knife"]
+amount = 100
+lifetime = 2.0
+local_coords = false
+process_material = ExtResource( 10 )
+
+[node name="Particles2D2" type="Particles2D" parent="Body/Knife"]
+position = Vector2( -10.7408, 97.4404 )
+amount = 100
+lifetime = 2.0
+local_coords = false
+process_material = ExtResource( 10 )
+
+[node name="Particles2D3" type="Particles2D" parent="Body/Knife"]
+position = Vector2( -7.46252, -67.9508 )
+amount = 100
+lifetime = 2.0
+local_coords = false
+process_material = ExtResource( 10 )
+
+[node name="ColorRect" type="ColorRect" parent="Body"]
+material = SubResource( 4 )
+margin_left = 1.00001
+margin_top = -40.0
+margin_right = 571.0
+margin_bottom = 88.0
+rect_rotation = 10.091
+rect_pivot_offset = Vector2( 0, 64 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 1026, 302 )
+amount = 30
+lifetime = 10.0
+preprocess = 121.1
+visibility_rect = Rect2( -1050, -400, 1050, 800 )
+process_material = SubResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 302, 451 )

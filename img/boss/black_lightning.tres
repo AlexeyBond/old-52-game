@@ -1,0 +1,34 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise_texture;
+uniform sampler2D curve;
+uniform sampler2D intensity_curve;
+
+void fragment() {
+	COLOR.rgb = vec3(0);
+	vec2 uv = UV;
+	
+	vec2 a = normalize(vec2(dFdx(uv.x), dFdy(uv.x)));
+	vec2 b = normalize(vec2(dFdx(uv.y), dFdy(uv.y)));
+	
+	vec2 st = vec2(dot(a, uv), dot(b, uv));
+	
+	st -= mod(st, 0.015);
+	
+	uv = st.x * a + st.y * b;
+	
+	float noise = texture(noise_texture, vec2(uv.x - TIME * 0.3, TIME * 0.1)).r * 2.0 - 1.0;
+	float k = texture(curve, vec2(uv.x, 0.0)).r;
+	float m = texture(intensity_curve, vec2(fract(uv.x - TIME * 0.3), 0.0)).x;
+
+	float d = abs(uv.y - 0.5 + 0.4 * noise * k) * 2.0;
+	
+
+	float thickness = 0.1 + k * 0.1 - m * 0.1;
+
+	COLOR.a = mix(0.0, 1.0, step(d, thickness));
+}
+"
