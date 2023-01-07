@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://main_tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://img/player/static0.png" type="Texture" id=2]
+[ext_resource path="res://img/env/grass1.png" type="Texture" id=3]
+[ext_resource path="res://img/objects/head.png" type="Texture" id=4]
+[ext_resource path="res://img/env/tree.png" type="Texture" id=5]
+[ext_resource path="res://img/player/hand.png" type="Texture" id=6]
+[ext_resource path="res://img/objects/humman.png" type="Texture" id=7]
+[ext_resource path="res://img/boss/body.png" type="Texture" id=8]
+[ext_resource path="res://img/boss/knife.png" type="Texture" id=9]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 983040, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 983044, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 0, 983062, 0, 0, 983063, 0, 0, 983064, 0, 0, 983065, 0, 0, 983066, 0, 0, 983067, 0, 0, 983068, 0, 0, 983069, 0, 0, 983070, 0, 0, 983071, 0, 0, 1048576, 1, 0, 1048577, 1, 0, 1048578, 1, 0, 1048579, 1, 0, 1048580, 1, 0, 1048581, 1, 0, 1048582, 1, 0, 1048583, 1, 0, 1048584, 1, 0, 1048585, 1, 0, 1048586, 1, 0, 1048587, 1, 0, 1048588, 1, 0, 1048589, 1, 0, 1048590, 1, 0, 1048591, 1, 0, 1048592, 1, 0, 1048593, 1, 0, 1048594, 1, 0, 1048595, 1, 0, 1048596, 1, 0, 1048597, 1, 0, 1048598, 1, 0, 1048599, 1, 0, 1048600, 1, 0, 1048601, 1, 0, 1048602, 1, 0, 1048603, 1, 0, 1048604, 1, 0, 1048605, 1, 0, 1048606, 1, 0, 1048607, 1, 0, 1114112, 1, 0, 1114113, 1, 0, 1114114, 1, 0, 1114115, 1, 0, 1114116, 1, 0, 1114117, 1, 0, 1114118, 1, 0, 1114119, 1, 0, 1114120, 1, 0, 1114121, 1, 0, 1114122, 1, 0, 1114123, 1, 0, 1114124, 1, 0, 1114125, 1, 0, 1114126, 1, 0, 1114127, 1, 0, 1114128, 1, 0, 1114129, 1, 0, 1114130, 1, 0, 1114131, 1, 0, 1114132, 1, 0, 1114133, 1, 0, 1114134, 1, 0, 1114135, 1, 0, 1114136, 1, 0, 1114137, 1, 0, 1114138, 1, 0, 1114139, 1, 0, 1114140, 1, 0, 1114141, 1, 0, 1114142, 1, 0, 1114143, 1, 0, 1179648, 1, 0, 1179649, 1, 0, 1179650, 1, 0, 1179651, 1, 0, 1179652, 1, 0, 1179653, 1, 0, 1179654, 1, 0, 1179655, 1, 0, 1179656, 1, 0, 1179657, 1, 0, 1179658, 1, 0, 1179659, 1, 0, 1179660, 1, 0, 1179661, 1, 0, 1179662, 1, 0, 1179663, 1, 0, 1179664, 1, 0, 1179665, 1, 0, 1179666, 1, 0, 1179667, 1, 0, 1179668, 1, 0, 1179669, 1, 0, 1179670, 1, 0, 1179671, 1, 0, 1179672, 1, 0, 1179673, 1, 0, 1179674, 1, 0, 1179675, 1, 0, 1179676, 1, 0, 1179677, 1, 0, 1179678, 1, 0, 1179679, 1, 0 )
+
+[node name="Tree" type="Sprite" parent="."]
+position = Vector2( 542, 356 )
+texture = ExtResource( 5 )
+
+[node name="Grass1" type="Sprite" parent="."]
+position = Vector2( 745, 450 )
+texture = ExtResource( 3 )
+
+[node name="Grass2" type="Sprite" parent="."]
+position = Vector2( 799, 510 )
+texture = ExtResource( 3 )
+
+[node name="Head" type="Sprite" parent="."]
+position = Vector2( 456, 449 )
+texture = ExtResource( 4 )
+
+[node name="Humman" type="Sprite" parent="."]
+position = Vector2( 398, 325 )
+texture = ExtResource( 7 )
+
+[node name="Hand" type="Sprite" parent="."]
+position = Vector2( 382, 200 )
+texture = ExtResource( 6 )
+
+[node name="Hand2" type="Sprite" parent="."]
+position = Vector2( 357, 306 )
+texture = ExtResource( 6 )
+
+[node name="Body" type="Sprite" parent="."]
+position = Vector2( 116, 98 )
+texture = ExtResource( 8 )
+
+[node name="Knife" type="Sprite" parent="."]
+position = Vector2( 671, 290 )
+rotation = 0.211964
+texture = ExtResource( 9 )
+
+[node name="Static0" type="Sprite" parent="."]
+position = Vector2( 315, 419 )
+texture = ExtResource( 2 )
