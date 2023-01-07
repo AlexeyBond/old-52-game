@@ -14,6 +14,7 @@ var victim: Player = null
 func stop_hitting_victim():
 	if victim != null:
 		victim.done_hit()
+		victim.lose_hp()
 
 func _on_Area2D_body_entered(body: CollisionObject2D):
 	if body != null and not hitting:

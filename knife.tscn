@@ -157,7 +157,7 @@ extents = Vector2( 10, 249.5 )
 script = ExtResource( 3 )
 
 [node name="target" type="Sprite" parent="."]
-rotation = 0.0895603
+rotation = 0.0895604
 texture = ExtResource( 2 )
 
 [node name="Particles2D" type="Particles2D" parent="target"]
