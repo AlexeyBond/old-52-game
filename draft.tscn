@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://main_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://manshroom.tscn" type="PackedScene" id=16]
 [ext_resource path="res://end.tscn" type="PackedScene" id=17]
 [ext_resource path="res://img/env/pointer.png" type="Texture" id=18]
+[ext_resource path="res://img/env/tree2.png" type="Texture" id=19]
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 11 )
@@ -104,6 +105,80 @@ scale = Vector2( 1.6, 1.6 )
 [node name="Cloud3" parent="Sky/Clouds" instance=ExtResource( 13 )]
 position = Vector2( 1471, 54 )
 scale = Vector2( 1.4, 1.4 )
+
+[node name="objects_back" type="Node2D" parent="."]
+
+[node name="Tree2" type="Sprite" parent="objects_back"]
+position = Vector2( 1363, 449 )
+texture = ExtResource( 5 )
+
+[node name="Tree5" type="Sprite" parent="objects_back"]
+position = Vector2( 1423, 516 )
+texture = ExtResource( 5 )
+
+[node name="Tree6" type="Sprite" parent="objects_back"]
+position = Vector2( 1552, 442 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 5 )
+
+[node name="Tree7" type="Sprite" parent="objects_back"]
+position = Vector2( 1661, 505 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 5 )
+
+[node name="Tree3" type="Sprite" parent="objects_back"]
+position = Vector2( 1470, 385 )
+texture = ExtResource( 5 )
+
+[node name="Tree4" type="Sprite" parent="objects_back"]
+position = Vector2( 1650, 264 )
+rotation = -3.14159
+texture = ExtResource( 5 )
+
+[node name="Tree8" type="Sprite" parent="objects_back"]
+position = Vector2( 1229, 358 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 19 )
+
+[node name="Tree10" type="Sprite" parent="objects_back"]
+position = Vector2( -1689, 469 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 19 )
+
+[node name="Tree11" type="Sprite" parent="objects_back"]
+position = Vector2( -1822, 358 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 19 )
+
+[node name="Tree15" type="Sprite" parent="objects_back"]
+position = Vector2( -1969, 317 )
+rotation = 3.14159
+scale = Vector2( 1.32459, -1.32459 )
+texture = ExtResource( 19 )
+
+[node name="Tree9" type="Sprite" parent="objects_back"]
+position = Vector2( 1703, 252 )
+scale = Vector2( 1, -1 )
+texture = ExtResource( 19 )
+
+[node name="Tree" type="Sprite" parent="objects_back"]
+position = Vector2( -905, 352 )
+texture = ExtResource( 5 )
+
+[node name="Tree12" type="Sprite" parent="objects_back"]
+position = Vector2( 1303, 352 )
+texture = ExtResource( 5 )
+
+[node name="Tree13" type="Sprite" parent="objects_back"]
+position = Vector2( -1899, 367 )
+texture = ExtResource( 5 )
+
+[node name="Tree14" type="Sprite" parent="objects_back"]
+position = Vector2( -1760, 352 )
+texture = ExtResource( 5 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -218,13 +293,13 @@ texture = ExtResource( 14 )
 [node name="objects" type="Node2D" parent="."]
 
 [node name="StaticBody2D" parent="objects" instance=ExtResource( 16 )]
-position = Vector2( 1725, 480 )
+position = Vector2( 1795, 484 )
 
 [node name="StaticBody2D2" parent="objects" instance=ExtResource( 16 )]
-position = Vector2( 1459, 483 )
+position = Vector2( 1459, 484 )
 
 [node name="StaticBody2D3" parent="objects" instance=ExtResource( 16 )]
-position = Vector2( 1289, 484 )
+position = Vector2( 1287, 484 )
 
 [node name="StaticBody2D4" parent="objects" instance=ExtResource( 16 )]
 position = Vector2( -1822, 484 )
@@ -383,26 +458,6 @@ position = Vector2( 1074, 449 )
 [node name="grass22" parent="objects/grasses" instance=ExtResource( 3 )]
 position = Vector2( 866, 449 )
 
-[node name="Tree" type="Sprite" parent="objects/grasses"]
-position = Vector2( -905, 352 )
-texture = ExtResource( 5 )
-
-[node name="Tree2" type="Sprite" parent="objects/grasses"]
-position = Vector2( 1328, 352 )
-texture = ExtResource( 5 )
-
-[node name="Tree3" type="Sprite" parent="objects/grasses"]
-position = Vector2( 1303, 352 )
-texture = ExtResource( 5 )
-
-[node name="Tree4" type="Sprite" parent="objects/grasses"]
-position = Vector2( -1887, 352 )
-texture = ExtResource( 5 )
-
-[node name="Tree5" type="Sprite" parent="objects/grasses"]
-position = Vector2( -1760, 352 )
-texture = ExtResource( 5 )
-
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 294, 87 )
 
@@ -443,7 +498,7 @@ visibility_rect = Rect2( -1050, -400, 1050, 800 )
 process_material = SubResource( 3 )
 
 [node name="StaticBody2D" parent="." instance=ExtResource( 16 )]
-position = Vector2( 435, 487 )
+position = Vector2( 435, 484 )
 
 [node name="end" parent="." instance=ExtResource( 17 )]
 position = Vector2( -3213, 398 )
