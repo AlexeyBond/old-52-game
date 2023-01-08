@@ -74,3 +74,9 @@ func _physics_process(_delta):
 	var walkSOund = $KinematicBody2D/walkSound
 	if walkSOund.playing != walking:
 		walkSOund.playing = walking
+	
+	var sprite = $KinematicBody2D/theSprite
+	if walking and sprite.animation != "walk":
+		sprite.play("walk")
+	elif not walking and sprite.animation != "default":
+		sprite.play("default")
