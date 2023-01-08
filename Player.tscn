@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://img/player/player_eye4.png" type="Texture" id=1]
 [ext_resource path="res://img/player/player_eye3.png" type="Texture" id=2]
@@ -8,8 +8,8 @@
 [ext_resource path="res://img/player/player_base.png" type="Texture" id=6]
 [ext_resource path="res://Player.gd" type="Script" id=7]
 [ext_resource path="res://img/player/hand2.png" type="Texture" id=8]
-[ext_resource path="res://img/objects/humman.png" type="Texture" id=9]
-[ext_resource path="res://img/objects/humman-reaped.png" type="Texture" id=10]
+[ext_resource path="res://img/objects/human_grabbed.png" type="Texture" id=9]
+[ext_resource path="res://img/objects/human_head.png" type="Texture" id=10]
 [ext_resource path="res://snd/walk.ogg" type="AudioStream" id=11]
 [ext_resource path="res://snd/scream-2.ogg" type="AudioStream" id=12]
 [ext_resource path="res://snd/stab-2.ogg" type="AudioStream" id=13]
@@ -363,7 +363,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=34]
 resource_name = "grab"
-length = 5.0
+length = 6.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Hand2:position:x")
 tracks/0/interp = 1
@@ -372,7 +372,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "points": PoolRealArray( 88, -0.25, 0, 0.25, 0, 88, -0.25, 0, 0.25, 0, 84, -0.25, 0, 0.25, 0, 84, -0.25, 0, 0.25, 0, 95, -0.25, 0, 0.25, 0, 95, -0.25, 0, 0.25, 0, 101, -0.25, 0, 0.25, 0, 101, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1, 1.2, 1.8, 2, 3, 3.4, 4 )
+"times": PoolRealArray( 0, 1, 1.2, 1.8, 2, 4.1, 4.4, 5 )
 }
 tracks/1/type = "bezier"
 tracks/1/path = NodePath("Hand2:position:y")
@@ -382,7 +382,7 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "points": PoolRealArray( -104, -0.25, 0, 0.25, 0, -104, -0.25, 0, 0.25, 0, -14, -0.25, 0, 0.25, 0, -14, -0.25, 0, 0.25, 0, -180, -0.25, 0, 0.25, 0, -180, -0.25, 0, 0.25, 0, -201, -0.25, 0, 0.25, 0, -201, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1, 1.2, 1.8, 2, 3, 3.4, 4 )
+"times": PoolRealArray( 0, 1, 1.2, 1.8, 2, 4.1, 4.4, 5 )
 }
 tracks/2/type = "bezier"
 tracks/2/path = NodePath("Hand2:rotation_degrees")
@@ -392,7 +392,7 @@ tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
 "points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -92.7336, -0.25, 0, 0.25, 0, -34.3495, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1, 1.2, 1.8, 2, 3, 3.4, 4 )
+"times": PoolRealArray( 0, 1, 1.2, 1.8, 2, 4.1, 4.4, 5 )
 }
 tracks/3/type = "bezier"
 tracks/3/path = NodePath("Hand:position:x")
@@ -401,7 +401,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"points": PoolRealArray( -59, -0.25, 0, 0.25, 0, -46, -0.25, 0, 0.25, 0, -46, -0.25, 0, 0.25, 0, 151, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( -59, -0.25, 0, 0.25, 0, -46, -0.25, 0, 0.25, 0, -46, -0.25, 0, 0.25, 0, 126, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0.2, 1.8, 2.5, 2.8 )
 }
 tracks/4/type = "bezier"
@@ -411,7 +411,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"points": PoolRealArray( -47, -0.25, 0, 0.25, 0, -134, -0.25, 0, 0.25, 0, -134, -0.25, 0, 0.25, 0, -81, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( -47, -0.25, 0, 0.25, 0, -134, -0.25, 0, 0.25, 0, -134, -0.25, 0, 0.25, 0, -147, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0.2, 1.8, 2.5, 2.8 )
 }
 tracks/5/type = "bezier"
@@ -443,7 +443,7 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"points": PoolRealArray( 83, -0.25, 0, 0.25, 0, 94, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 97, -0.25, 0, 0.25, 0, 107, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 1.8, 2 )
 }
 tracks/8/type = "bezier"
@@ -453,7 +453,7 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"points": PoolRealArray( 113, -0.25, 0, 0.25, 0, -58, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 53, -0.25, 0, 0.25, 0, -116, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 1.8, 2 )
 }
 tracks/9/type = "bezier"
@@ -473,7 +473,7 @@ tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 5 ),
+"times": PoolRealArray( 6 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ "idle", -1, 1.0, false ],
@@ -487,8 +487,8 @@ tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"points": PoolRealArray( 94, -0.25, 0, 0.25, 0, 94, -0.25, 0, 0.25, 0, 174, -0.25, 0, 0.25, 0, 163, -0.4, 14.5001, 0.3, -13.4998, 154, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 2.7, 3, 3.4, 4, 4.4 )
+"points": PoolRealArray( 94, -0.25, 0, 0.25, 0, 96, -0.25, 0, 0.25, 0, 97, -0.25, 0, 0.25, 0, 108, -0.25, 0, 0.25, 0, 115, -0.25, 0, 0.25, 0, 163, -0.4, 14.5001, 0.3, -13.4998, 154, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 2.7, 2.8, 4, 4.3, 4.4, 5, 5.4 )
 }
 tracks/12/type = "bezier"
 tracks/12/path = NodePath("Humman-reaped:position:y")
@@ -497,8 +497,8 @@ tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/keys = {
-"points": PoolRealArray( -122, -0.25, 0, 0.25, 0, -122, -0.25, 0, 0.25, 0, -202, -0.3, 78.222, 0.2, -55.9323, -345.648, -0.3, 65.3873, 0.2, -151.323, -568, -0.2, 144.955, 0.25, 0 ),
-"times": PoolRealArray( 2.7, 3, 3.4, 4, 4.4 )
+"points": PoolRealArray( -122, -0.25, 0, 0.25, 0, -165, -0.25, 0, 0.25, 0, -164, -0.25, 0, 0.25, 0, -184, -0.25, 0, 0.25, 0, -193, -0.25, 0, 0.25, 0, -345.648, -0.3, 65.3873, 0.2, -151.323, -568, -0.2, 144.955, 0.25, 0 ),
+"times": PoolRealArray( 2.7, 2.8, 4, 4.3, 4.4, 5, 5.4 )
 }
 tracks/13/type = "bezier"
 tracks/13/path = NodePath("Humman-reaped:rotation_degrees")
@@ -507,8 +507,8 @@ tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -56.7009, -0.1, 58.9619, 0.2, -21.9968, -160.785, -0.3, 57.6457, 0.3, -66.1889, -258.876, -0.3, 98.9791, 0.2, -86.7729 ),
-"times": PoolRealArray( 2.7, 3, 3.4, 4, 4.4 )
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -26.6169, -0.25, 0, 0.25, 0, -56.7009, -0.25, 0, 0.25, 0, -160.785, -0.3, 57.6457, 0.3, -66.1889, -258.876, -0.3, 98.9791, 0.2, -86.7729 ),
+"times": PoolRealArray( 2.7, 2.8, 4, 4.3, 4.4, 5, 5.4 )
 }
 tracks/14/type = "value"
 tracks/14/path = NodePath("Humman-reaped:visible")
@@ -517,7 +517,7 @@ tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/keys = {
-"times": PoolRealArray( 0, 2.8, 4.9 ),
+"times": PoolRealArray( 0, 2.8, 5.9 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false ]
@@ -529,7 +529,7 @@ tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"times": PoolRealArray( 0, 5 ),
+"times": PoolRealArray( 0, 6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -571,7 +571,7 @@ tracks/17/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 13 )
 } ],
-"times": PoolRealArray( 1.1, 1.8, 2.7 )
+"times": PoolRealArray( 1.1, 1.8, 2.8 )
 }
 tracks/18/type = "method"
 tracks/18/path = NodePath("../..")
@@ -580,7 +580,7 @@ tracks/18/loop_wrap = true
 tracks/18/imported = false
 tracks/18/enabled = true
 tracks/18/keys = {
-"times": PoolRealArray( 1.8, 4.7 ),
+"times": PoolRealArray( 1.8, 5.7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -588,6 +588,20 @@ tracks/18/keys = {
 }, {
 "args": [  ],
 "method": "take_hp"
+} ]
+}
+tracks/19/type = "method"
+tracks/19/path = NodePath("manshroom_blood")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 2.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "restart"
 } ]
 }
 
@@ -656,6 +670,17 @@ tracks/5/keys = {
 "times": PoolRealArray( 0, 0.9, 1.8, 3.5, 4.9, 7, 8.3, 9.3 )
 }
 
+[sub_resource type="ParticlesMaterial" id=42]
+flag_disable_z = true
+direction = Vector3( 0, 1, 0 )
+gravity = Vector3( 0, 200, 0 )
+initial_velocity = 58.82
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 55.29
+scale = 5.0
+color = Color( 0.517647, 0.266667, 0.270588, 1 )
+
 [node name="Player" type="Node2D"]
 position = Vector2( 302, 478 )
 script = ExtResource( 7 )
@@ -674,26 +699,24 @@ playing = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D/theSprite"]
 position = Vector2( 1, -16 )
 frames = SubResource( 9 )
-frame = 2
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="KinematicBody2D/theSprite"]
 position = Vector2( 1, -16 )
 frames = SubResource( 16 )
-frame = 1
 speed_scale = 1.5
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="KinematicBody2D/theSprite"]
 position = Vector2( 1, -16 )
 frames = SubResource( 20 )
+frame = 2
 speed_scale = 1.24
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="KinematicBody2D/theSprite"]
 position = Vector2( 1, -16 )
 frames = SubResource( 24 )
-frame = 3
 speed_scale = 1.31
 playing = true
 
@@ -755,6 +778,17 @@ anims/die = SubResource( 35 )
 anims/grab = SubResource( 34 )
 anims/idle = SubResource( 33 )
 
+[node name="manshroom_blood" type="Particles2D" parent="KinematicBody2D/Hands"]
+position = Vector2( 106, -144 )
+rotation = -0.484448
+emitting = false
+amount = 200
+lifetime = 5.0
+one_shot = true
+explosiveness = 0.71
+local_coords = false
+process_material = SubResource( 42 )
+
 [node name="walkSound" type="AudioStreamPlayer2D" parent="KinematicBody2D"]
 stream = ExtResource( 11 )
 volume_db = 4.601
@@ -771,7 +805,7 @@ volume_db = -3.681
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
-volume_db = -22.723
+volume_db = 0.873
 autoplay = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
