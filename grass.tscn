@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://img/env/grass2.png" type="Texture" id=1]
+[ext_resource path="res://img/env/grass1.png" type="Texture" id=2]
+
+[sub_resource type="Shader" id=5]
+code = "shader_type canvas_item;
+
+uniform float waviness = 10.0;
+uniform float frequency = 2.0;
+
+void fragment() {
+	vec2 uv = UV;
+	
+	float y = uv.y - mod(uv.y, 1.0/64.0);
+	
+	uv.x += min((1.0 - uv.y) * 5.0, 1.0) * 0.05 * sin(y * waviness + TIME * frequency);
+	
+	COLOR = texture(TEXTURE, uv);
+}
+"
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
+shader_param/waviness = 10.0
+shader_param/frequency = 2.0
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="GDScript" id=4]
+script/source = "extends AnimatedSprite
+
+func _ready():
+	var fc = self.frames.get_frame_count(\"default\")
+	
+	self.frame = randi() % fc
+	
+	var sm: ShaderMaterial = self.material.duplicate()
+	self.material = sm
+	
+	sm.set_shader_param(\"waviness\", rand_range(8.0, 12.0));
+	sm.set_shader_param(\"frequency\", rand_range(1.5, 3.0));
+"
+
+[node name="AnimatedSprite" type="AnimatedSprite"]
+material = SubResource( 6 )
+position = Vector2( 0, -32 )
+frames = SubResource( 3 )
+script = SubResource( 4 )

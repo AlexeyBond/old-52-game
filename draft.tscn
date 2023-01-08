@@ -2,7 +2,7 @@
 
 [ext_resource path="res://main_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://img/env/grass1.png" type="Texture" id=3]
+[ext_resource path="res://grass.tscn" type="PackedScene" id=3]
 [ext_resource path="res://img/objects/head.png" type="Texture" id=4]
 [ext_resource path="res://img/env/tree.png" type="Texture" id=5]
 [ext_resource path="res://black_lightning.tscn" type="PackedScene" id=6]
@@ -45,13 +45,14 @@ color = Color( 0.180392, 0.282353, 0.380392, 1 )
 [node name="Sky" type="Node2D" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="Sky"]
-margin_left = -2281.0
+margin_left = -3809.0
 margin_top = -138.0
-margin_right = -1607.0
-margin_bottom = 25.0
+margin_right = 2078.0
+margin_bottom = 766.0
 color = Color( 0.207843, 0.184314, 0.239216, 1 )
 
 [node name="Backs" type="Node2D" parent="Sky"]
+visible = false
 
 [node name="Sky" type="Sprite" parent="Sky/Backs"]
 position = Vector2( 512, 300 )
@@ -113,18 +114,6 @@ tile_data = PoolIntArray( 65425, 1, 0, 65426, 1, 0, 65427, 1, 0, 65428, 1, 0, 65
 [node name="Head" type="Sprite" parent="TileMap"]
 position = Vector2( 1388, 135 )
 texture = ExtResource( 4 )
-
-[node name="Tree" type="Sprite" parent="."]
-position = Vector2( 542, 356 )
-texture = ExtResource( 5 )
-
-[node name="Grass1" type="Sprite" parent="."]
-position = Vector2( 745, 450 )
-texture = ExtResource( 3 )
-
-[node name="Grass2" type="Sprite" parent="."]
-position = Vector2( 799, 510 )
-texture = ExtResource( 3 )
 
 [node name="Body" type="Sprite" parent="."]
 material = SubResource( 2 )
@@ -243,6 +232,90 @@ position = Vector2( -1822, 484 )
 [node name="Pointer" type="Sprite" parent="objects"]
 position = Vector2( 77, 423 )
 texture = ExtResource( 18 )
+
+[node name="grasses" type="Node2D" parent="objects"]
+
+[node name="grass" parent="objects/grasses" instance=ExtResource( 3 )]
+position = Vector2( 315, 449 )
+
+[node name="grass2" parent="objects/grasses" instance=ExtResource( 3 )]
+position = Vector2( 219, 449 )
+
+[node name="grass3" parent="objects/grasses" instance=ExtResource( 3 )]
+position = Vector2( 500, 449 )
+
+[node name="grass4" parent="objects/grasses" instance=ExtResource( 3 )]
+position = Vector2( -529, 449 )
+
+[node name="grass5" parent="objects/grasses" instance=ExtResource( 3 )]
+position = Vector2( -563, 449 )
+
+[node name="grass6" parent="objects/grasses" instance=ExtResource( 3 )]
+position = Vector2( -864, 449 )
+
+[node name="grass7" parent="objects/grasses" instance=ExtResource( 3 )]
+position = Vector2( -933, 449 )
+
+[node name="grass8" parent="objects/grasses" instance=ExtResource( 3 )]
+position = Vector2( -922, 449 )
+
+[node name="grass9" parent="objects/grasses" instance=ExtResource( 3 )]
+position = Vector2( -878, 449 )
+
+[node name="grass10" parent="objects/grasses" instance=ExtResource( 3 )]
+position = Vector2( -1360, 449 )
+
+[node name="grass11" parent="objects/grasses" instance=ExtResource( 3 )]
+position = Vector2( -1702, 449 )
+
+[node name="grass12" parent="objects/grasses" instance=ExtResource( 3 )]
+position = Vector2( -1866, 449 )
+
+[node name="grass13" parent="objects/grasses" instance=ExtResource( 3 )]
+position = Vector2( -1781, 449 )
+
+[node name="grass14" parent="objects/grasses" instance=ExtResource( 3 )]
+position = Vector2( -1901, 449 )
+
+[node name="grass15" parent="objects/grasses" instance=ExtResource( 3 )]
+position = Vector2( 1368, 449 )
+
+[node name="grass16" parent="objects/grasses" instance=ExtResource( 3 )]
+position = Vector2( 1188, 449 )
+
+[node name="grass17" parent="objects/grasses" instance=ExtResource( 3 )]
+position = Vector2( 1219, 449 )
+
+[node name="grass18" parent="objects/grasses" instance=ExtResource( 3 )]
+position = Vector2( 1408, 449 )
+
+[node name="grass19" parent="objects/grasses" instance=ExtResource( 3 )]
+position = Vector2( 1637, 449 )
+
+[node name="grass20" parent="objects/grasses" instance=ExtResource( 3 )]
+position = Vector2( 1527, 449 )
+
+[node name="grass21" parent="objects/grasses" instance=ExtResource( 3 )]
+position = Vector2( 1074, 449 )
+
+[node name="grass22" parent="objects/grasses" instance=ExtResource( 3 )]
+position = Vector2( 866, 449 )
+
+[node name="Tree" type="Sprite" parent="objects/grasses"]
+position = Vector2( -905, 352 )
+texture = ExtResource( 5 )
+
+[node name="Tree2" type="Sprite" parent="objects/grasses"]
+position = Vector2( 1328, 352 )
+texture = ExtResource( 5 )
+
+[node name="Tree3" type="Sprite" parent="objects/grasses"]
+position = Vector2( 1303, 352 )
+texture = ExtResource( 5 )
+
+[node name="Tree4" type="Sprite" parent="objects/grasses"]
+position = Vector2( -1887, 352 )
+texture = ExtResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 294, 87 )
